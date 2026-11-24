@@ -30,14 +30,6 @@ PORT=4000 npm run dev
 
 ## API
 
-### `GET /health`
-
-Liveness check.
-
-```json
-{ "status": "ok", "timestamp": "2026-11-24T14:00:00.000Z" }
-```
-
 ### `GET /products/featured`
 
 Returns 5 random products.
