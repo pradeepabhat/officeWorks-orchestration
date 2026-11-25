@@ -46,6 +46,31 @@ export const searchProducts = async (
   }
 };
 
+export const fetchAllProducts = async (
+  _req: Request,
+  res: Response<ProductResponse[] | ErrorResponse>,
+) => {
+  try {
+    res.status(200).json(await getProducts());
+  } catch (err) {
+    console.error('Failed to fetch products', err);
+    res.status(502).json({ error: 'Failed to fetch products' });
+  }
+};
+
+export const getCategories = async (
+  _req: Request,
+  res: Response<string[] | ErrorResponse>,
+) => {
+  try {
+    const products = await getProducts();
+    res.status(200).json([...new Set(products.map((p) => p.category))]);
+  } catch (err) {
+    console.error('Failed to fetch categories', err);
+    res.status(502).json({ error: 'Failed to fetch categories' });
+  }
+};
+
 export const getProduct = async (
   req: Request,
   res: Response<ProductResponse | ErrorResponse>,

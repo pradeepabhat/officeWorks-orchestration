@@ -13,10 +13,6 @@ export class HttpAccessor {
     return this.request<T>('GET', path, undefined, headers);
   }
 
-  async post<T>(path: string, body: unknown, headers: Record<string, string> = {}): Promise<T | null> {
-    return this.request<T>('POST', path, body, headers);
-  }
-
   private async request<T>(
     method: string,
     path: string,
