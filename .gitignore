@@ -1,14 +1,28 @@
 # Dependencies
 node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Build output
 dist/
+build/
 *.tsbuildinfo
 
-# Environment
+# Environment variables
 .env
-.env.*
+.env.local
+.env.*.local
 !.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
 
 # Logs
 logs/
@@ -17,14 +31,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# Coverage
-coverage/
-
-# OS / editor
+# OS
 .DS_Store
 Thumbs.db
-.idea/
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+.AppleDouble
+.LSOverride
+
+# Node
+*.tgz
+.npm
+
+# Testing
+coverage/
+.nyc_output/
