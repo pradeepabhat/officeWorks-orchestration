@@ -9,7 +9,7 @@
 
 ### 2. **In-Memory Data Fetching**
 - **Assumption**: It's acceptable to fetch the full product list on every request for search, featured, and categories endpoints.
-- **Why**: The Fake Store API has ~20 products; for a PoC, in-memory fetching is simpler than caching.
+- **Why**: The Fake Store API has ~20 products; in-memory fetching is simpler than caching.
 - **Limitation**: This won't scale to larger datasets or high-traffic scenarios.
 
 ### 3. **No Authentication/Authorization**
@@ -174,8 +174,3 @@ responses/ (types)
 | Stateless design | Easy to scale horizontally | Can't store user sessions | User accounts needed |
 | FakeStoreAPI only | Known, stable data | Single point of failure | Need real product inventory |
 
----
-
-## Conclusion
-
-This PoC prioritizes **simplicity** and **clarity** over production-readiness. The layered architecture provides a solid foundation for adding caching, auth, databases, and multiple data sources as requirements evolve. The main limitation is the lack of a caching layer, which should be addressed before scaling to high traffic.
